@@ -13,6 +13,6 @@ Its purpose is to provide the possibility to process SAR data with your own `map
 
 1. Implement your own mapper and reducer.
 
-1. The repository's name must stay as `SAR_proc`
+1. The repository's name must stay as `SAR-proc`
 
 *Note: data files are located in the root directory of the mapper and reducer scripts by default.*
