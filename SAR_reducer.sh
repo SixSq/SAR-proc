@@ -1,17 +1,17 @@
 #!/bin/bash
 #
-# This script creates the final output.
+# This script creates the final result by reducing the processed
+# image set in to an animation.
 #
-# - Data location: /root/SAR-app/deployment/reducer/
+# - Input: data location as $PROCESSED_DATA_LOC environment variable
 # - Output: animated GIF
 #
 set -e
 set -x
-source ~/SAR-app/deployment/lib.sh
 
-echo "@REDUCER_RUN - "$(timestamp)" - start processing"
+echo "@REDUCER_RUN - "$(date +%s)" - start processing"
 output=SAR_animation_$(date +%s).gif
-base_path=~/SAR-app/deployment/reducer
+base_path=${PROCESSED_DATA_LOC:-.}
 convert -delay 90 -loop 0 $base_path/*.png $base_path/$output
-echo "@REDUCER_RUN - "$(timestamp)" - finish processing"
+echo "@REDUCER_RUN - "$(date +%s)" - finish processing"
 #get_file_size $output"
