@@ -9,9 +9,8 @@
 set -e
 set -x
 
-echo "@REDUCER_RUN - "$(date +%s)" - start processing"
-output=SAR_animation_$(date +%s).gif
-base_path=${PROCESSED_DATA_LOC:-.}
-convert -delay 90 -loop 0 $base_path/*.png $base_path/$output
-echo "@REDUCER_RUN - "$(date +%s)" - finish processing"
-#get_file_size $output"
+echo "@REDUCER_RUN $(date +%s) start reducing"
+input_path=${1:-.}
+output=${2:-.}/SAR_animation_$(date +%s).gif
+convert -delay 90 -loop 0 $input_path/*.png $output
+echo "@REDUCER_RUN $(date +%s) finish reducing"
