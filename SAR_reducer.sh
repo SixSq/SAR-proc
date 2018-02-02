@@ -12,7 +12,5 @@ set -x
 echo "@REDUCER_RUN $(date +%s) start reducing"
 output=${2:-.}/SAR_animation_$(date +%s).gif
 cd ${1:-.}
-ls -l .
-ls *.png
 convert -delay 90 -loop 0 *.png $output
 echo "@REDUCER_RUN $(date +%s) finish reducing"
