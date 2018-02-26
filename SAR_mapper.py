@@ -1,26 +1,21 @@
+from datetime import datetime
+import gc
+import time
 import sys
-
-sys.path.append('/root/.snap/snap-python')
+sys.path.append(os.path.expanduser('~/.snap/snap-python'))
 import snappy
 from snappy import GPF
-from snappy import HashMap
-from snappy import (ProductIO, ProductUtils, ProgressMonitor)
-from datetime import datetime
+from snappy import (ProductIO, ProgressMonitor)
 
 jpy = snappy.jpy
-
 imageIO = jpy.get_type('javax.imageio.ImageIO')
 File = jpy.get_type('java.io.File')
 
 import matplotlib
-
 matplotlib.use('Agg')
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 from scipy import ndimage
-import time
-
-import gc
 
 
 def timestamp():
@@ -31,7 +26,7 @@ start_time = time.time()
 print(timestamp() + "start processing")
 
 # TODO check with zipped files
-s1paths = list(sys.argv[1].split(','))
+s1paths = sys.argv[1].split(',')
 s1meta = "manifest.safe"
 
 products = []
